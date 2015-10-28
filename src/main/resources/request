@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:addr="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsen="http://schemas.xmlsoap.org/ws/2004/09/enumeration" xmlns:wsman="http://schemas.dmtf.org/wbem/wsman/1/wsman.xsd">
+  <env:Header>
+    <addr:To env:mustUnderstand="true">http://10.10.64.60:5985/wsman</addr:To>
+    <addr:ReplyTo>
+      <addr:Address env:mustUnderstand="true">http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</addr:Address>
+    </addr:ReplyTo>
+    <wsman:MaxEnvelopeSize env:mustUnderstand="true">131072</wsman:MaxEnvelopeSize>
+    <addr:MessageID env:mustUnderstand="true">ceb079eb-08ff-4b55-8cf6-8a11c128951d</addr:MessageID>
+    <wsman:ResourceURI env:mustUnderstand="true">http://schemas.microsoft.com/wbem/wsman/1/wmi/root/virtualization/v2/*</wsman:ResourceURI>
+    <addr:Action env:mustUnderstand="true">http://schemas.xmlsoap.org/ws/2004/09/enumeration/Enumerate</addr:Action>
+    <wsman:OperationTimeout>PT60.000S</wsman:OperationTimeout>
+  </env:Header>
+  <env:Body>
+    <wsen:Enumerate>
+      <wsman:Filter Dialect="http://schemas.microsoft.com/wbem/wsman/1/WQL">SELECT Name FROM Msvm_ComputerSystem</wsman:Filter>
+    </wsen:Enumerate>
+  </env:Body>
+</env:Envelope>
